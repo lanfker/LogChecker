@@ -1,4 +1,5 @@
-#include <dirent.h> 
+#pragma once
+
 #include <string> 
 #include <vector> 
 
@@ -7,17 +8,14 @@
 using namespace std;
 
 
-namespace DmsLog{
-    class DirectoryReader{
-        private:
-            const string namePattern;
+namespace DmsLog {
+	class DirectoryReader {
+	private:
+		vector<string> get_all_files_names_within_folder(wstring pattern);
+		bool patternMatch (string name, string pattern);
 
-        public: 
-            DirectoryReader(const string& pattern);
-            vector<string> collectFileNames () const;
-
-    };
-
-
+	public:
+		vector<string> collectFileNames(wstring pattern);
+	};
 }
 #endif
