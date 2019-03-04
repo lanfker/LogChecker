@@ -20,7 +20,7 @@ namespace DmsLog {
 
     LogValidator::~LogValidator() { if (this->infile.is_open()) this->infile.close(); }
 
-    const string& LogValidator::getFileName() {
+    const string& LogValidator::getFileName() const {
         return fname;
     }
 

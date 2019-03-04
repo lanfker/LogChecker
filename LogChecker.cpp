@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
     DmsLog::DirectoryReader dreader;
     vector<string> files = dreader.collectFileNames (pattern);
 
+    //Read ID lists from the 2nd command argument. IDs should be in hexdecimal. It does not matter if they are prefixed with '0x' or not.
     string idstring (argv[2], argv[2] + strlen(argv[2]));
     istringstream iss(idstring);
     int id = 0;
@@ -38,6 +39,5 @@ int main(int argc, char* argv[])
         logvalidator.setIdList(idList);
         logvalidator.processLogs();
     }
-    //getchar();
     return 0;
 }
